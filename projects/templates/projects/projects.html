@@ -2,6 +2,8 @@
 
 {% block content %}
 <h1>Projects Templates</h1>
+<a href="{% url 'create-project' %}">Add Projects</a>
+
 <ul>
     {% for project in projects %}
     <li>Name: <a href="{% url 'project' project.id %}">{{ project.title }}</a></li>
