@@ -4,12 +4,33 @@
 <h1>Projects Templates</h1>
 <a href="{% url 'create-project' %}">Add Projects</a>
 
-<ul>
-    {% for project in projects %}
-    <li>Name: <a href="{% url 'project' project.id %}">{{ project.title }}</a></li>
-    {% endfor %}
-</ul>
-{% endblock content%}
 
 
-    
+<table>
+    <thead>
+        <tr>
+            <th>Project</th>
+            <th>Positive Votes</th>
+            <th>Votes</th>
+            <th>View</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Project in projects %}
+
+        <tr>
+            <td>{{ Project.title }}</td>
+            <td>{{ Project.vote_ration}}</td>
+            <td>{{ Project.votes_total }}</td>
+            <td><a href="{% url 'project' Project.id %}">View</a></td>
+            <td><a href="{% url 'update-project' Project.id %}">Edit</a></td>
+            <td><a href="{% url 'delete-project' Project.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+    </table>
+   {% endblock %}
+
+
