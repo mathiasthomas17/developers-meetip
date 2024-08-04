@@ -2,7 +2,8 @@
 
 {% block content %}
 <h1>Single</h1>
-<h3>{{ project.id}}</h3>
+<img style="max-width: 300px;" src="{{ project.featured_image.url }}" alt="">
+<!-- <h3>{{ project.id}}</h3> -->
 <h3>{{ project.title}}</h3>
 <hr>
 {% for tag in project.tag.all %}
@@ -10,4 +11,6 @@
 {{ tag }}
 {% endfor %}
 </hr>
+<h3>{{ project.description }}</h3>
+
 {% endblock content %}
